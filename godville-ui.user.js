@@ -3,7 +3,7 @@
 // @namespace      http://godville.net/userscripts
 // @description    Some improvements for godville ui
 // @include        http://godville.net/hero*
-// @require        http://mesak-project.googlecode.com/files/jquery.142.gm.js
+// @require        http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
 // @resource       Words http://github.com/bazuuka/godville-ui/raw/v12/phrases.json
 // @resource       Style http://github.com/bazuuka/godville-ui/raw/v12/godville-ui.css
 // @resource       Version http://github.com/bazuuka/godville-ui/raw/v12/version
