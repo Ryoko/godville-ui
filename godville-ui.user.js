@@ -9,6 +9,7 @@
 // @resource       Version https://github.com/bazuuka/godville-ui/raw/v12/version
 // @license        GNU General Public License v3
 // ==/UserScript==
+// @require        http://mesak-project.googlecode.com/files/jquery.142.gm.js 
 
 var version = 2;
 var script_link = 'http://userscripts.org/scripts/show/81101';
@@ -17,6 +18,9 @@ var source_link_template = 'http://github.com/bazuuka/godville-ui/raw/%tag%/godv
 
 var god_name = $('#menu_top').text().replace(/Приветствуем, о (.+)\!/, '$1' );
 var developers = ['Neniu'];
+var char_name = $('div#hi_box div a[href^="/gods/"]').text();
+var guild_name = $('div#hi_box div a[href*="wiki"]').text();
+//GM_log("Guild name =" + guild_name);
 
 // Style
 GM_addStyle( GM_getResourceText('Style') );
@@ -207,11 +211,12 @@ var words = {
 
 	// Phrase gen
 	randomPhrase: function(sect) {
-		return getRandomItem(this.base['phrases'][sect]);
+		return char_name + ', ' + getRandomItem(this.base['phrases'][sect]);
 	},
 	longPhrase: function(sect, len) {
-		phrases = this._longPhrase_recursion(this.base['phrases'][sect].slice(), len || 78);
-		return phrases.join(' ');
+        var prefix = char_name + ', ';
+		phrases = this._longPhrase_recursion(this.base['phrases'][sect].slice(), (len || 78) - prefix.length);
+		return prefix + this._changeFirstLetter(phrases.join(' '));
 	},
 	inspectPhrase: function(item_name) {
 		return this.randomPhrase('inspect_prefix') + ' "' + item_name + '"';
@@ -237,6 +242,10 @@ var words = {
 		}
 		return [];
 	},
+    
+    _changeFirstLetter: function(text){
+        return text.charAt(0).toLowerCase() + text.slice(1);
+    }
 };
 
 // ------------------------
@@ -743,5 +752,6 @@ $(function() {
 							   setTimeout(improve, 1);
 					   });
 	  $('body').hover( function() { logger.update(); } );
+      addAfterLabel($('#hi_box'), 'Гильдия',  $('<a>стат</a>').attr('href', 'http://thedragons.ru/clans/' + guild_name));
 
 });
