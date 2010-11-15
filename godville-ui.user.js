@@ -4,17 +4,17 @@
 // @description    Some improvements for godville ui
 // @include        http://godville.net/hero*
 // @require        http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
-// @resource       Words https://github.com/bazuuka/godville-ui/raw/v12/phrases.json
-// @resource       Style https://github.com/bazuuka/godville-ui/raw/v12/godville-ui.css
-// @resource       Version https://github.com/bazuuka/godville-ui/raw/v12/version
+// @resource       Words https://github.com/Ryoko/godville-ui/raw/master/phrases.json
+// @resource       Style https://github.com/Ryoko/godville-ui/raw/master/godville-ui.css
+// @resource       Version https://github.com/Ryoko/godville-ui/raw/master/version
 // @license        GNU General Public License v3
 // ==/UserScript==
 // @require        http://mesak-project.googlecode.com/files/jquery.142.gm.js 
 
 var version = 2;
 var script_link = 'http://userscripts.org/scripts/show/81101';
-var latest_version_link = 'http://github.com/bazuuka/godville-ui/raw/master/version';
-var source_link_template = 'http://github.com/bazuuka/godville-ui/raw/%tag%/godville-ui.user.js';
+var latest_version_link = 'http://github.com/Ryoko/godville-ui/raw/master/version';
+var source_link_template = 'http://github.com/Ryoko/godville-ui/raw/%tag%/godville-ui.user.js';
 
 var god_name = $('#menu_top').text().replace(/Приветствуем, о (.+)\!/, '$1' );
 var developers = ['Neniu'];
@@ -147,7 +147,7 @@ var menu_bar = {
 			.click(function() {
 					   storage.dump();
 				   });
-	},
+	}
 };
 
 // -----------------------
