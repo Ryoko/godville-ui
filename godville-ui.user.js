@@ -272,14 +272,14 @@ var stats = {
 	setFromLabelCounter: function(id, $container, label, parser) {
 		parser = parser || parseInt;
 		var $label = findLabel($container, label);
-		var $field = $label.nextAll('.field_content').first();
+		var $field = $label.next('.field_content');
 		var value = parser($field.text());
 
 		return this.set(id, value);
 	},
 	setFromEquipCounter: function(id, $container, label) {
 		var $label = findLabel($container, label);
-		var $field = $label.nextAll('.equip_content').first();
+		var $field = $label.next('.equip_content');
 		var value = $field.text().replace(/.*([+-][0-9]+)/, "$1");
 
 		return this.set(id, parseInt(value));
