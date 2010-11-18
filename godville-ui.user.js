@@ -18,7 +18,9 @@ var source_link_template = 'http://github.com/Ryoko/godville-ui/raw/%tag%/godvil
 
 var god_name = $('#menu_top').text().replace(/Приветствуем, о (.+)\!/, '$1' );
 var developers = ['Neniu'];
-var char_name = $('div#hi_box div a[href^="/gods/"]').text();
+var char_name = isArena() ?
+        $('div#hero1_info fieldset div:first-child div').text() :
+        $('div#hi_box div a[href^="/gods/"]').text();
 var guild_name = $('div#hi_box div a[href*="wiki"]').text();
 //GM_log("Guild name =" + guild_name);
 
