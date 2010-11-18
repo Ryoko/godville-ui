@@ -216,7 +216,7 @@ var words = {
 		return char_name + ', ' + getRandomItem(this.base['phrases'][sect]);
 	},
 	longPhrase: function(sect, len) {
-        var prefix = char_name + ', ';
+        var prefix = char_name + ', ' + this._getHeil() + ', ';
 		phrases = this._longPhrase_recursion(this.base['phrases'][sect].slice(), (len || 78) - prefix.length);
 		return prefix + this._changeFirstLetter(phrases.join(' '));
 	},
@@ -244,10 +244,13 @@ var words = {
 		}
 		return [];
 	},
-    
-    _changeFirstLetter: function(text){
-        return text.charAt(0).toLowerCase() + text.slice(1);
-    }
+        _getHeil: function() {
+        	return getRandomItem(this.base['phrases']['heil']);
+    	},
+
+    	_changeFirstLetter: function(text){
+        	return text.charAt(0).toLowerCase() + text.slice(1);
+    	}
 };
 
 // ------------------------
